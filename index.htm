@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Catch a song</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div class="app">
+	  <header class="main-header">
+		  <h1 class="messageArtist">
+		  	{{messageArtist}}
+		  </h1>
+		  <h1 class="messageTrack">
+		  	{{messageTrack}}
+		  </h1>
+		  <h1 v-if="guessed">{{ message }} {{ artist + ' - ' + track }}</h1>
+	  </header>
+	  <main class="main-content">
+		  <audio v-bind:src="previewUrl" controls></audio><br>
+		  <input type="text" class="inp" v-model="guess"  v-on:keyup.13="checkTitle" placeholder="artist or title">
+	  </main>
+	  <footer class="main-footer">
+	  	<button class="button button_primary" v-on:click="checkTitle">Zgaduj piosenke</button>
+	  	<button class="button button_primary" v-on:click="giveUp">Poddaj się</button>
+	  	<button class="button button_primary" v-on:click="newSong">Nowa piosenka</button>
+	  </footer>
+	</div>
+	<script src="dist/bundle.js"></script>
+</body>
+</html>
