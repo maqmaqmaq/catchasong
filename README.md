@@ -1,2 +1,3 @@
 # catchasong
-Guessing song web app
+Guess a song
+Vue.js + webpack + css grid
